@@ -1,12 +1,8 @@
 package com.wyj.compressor;
 
-import javax.swing.JDialog;
 import javax.swing.JPanel;
-import javax.swing.UIManager;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+
 public class JPanelLogMonitor extends JPanel {
     private static final long serialVersionUID = 1L;
     private JTextArea txtLogInfo;

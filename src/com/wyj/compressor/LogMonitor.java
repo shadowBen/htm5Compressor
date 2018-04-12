@@ -42,7 +42,8 @@ public class LogMonitor implements Serializable {
     public static synchronized void removeLogChangedListener(LogChangedListener listener) {
         vectorListeners.removeElement(listener);
     }
-    public static void activateLogChangedEvent() {
+    @SuppressWarnings("unchecked")
+	public static void activateLogChangedEvent() {
         Vector<LogChangedListener> tempVector = null;
         LogChangedEvent e = new LogChangedEvent(LogMonitor.class);
         synchronized(LogMonitor.class) {
