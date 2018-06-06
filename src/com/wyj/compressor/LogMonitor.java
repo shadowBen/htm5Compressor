@@ -9,14 +9,14 @@ public class LogMonitor implements Serializable {
     private static final long serialVersionUID = 1L;
     private static StringBuilder logs = new StringBuilder();
     /**
-     * 获取日志信息
+     * 鑾峰彇鏃ュ織淇℃伅
      * @return
      */
     public static StringBuilder getLogs() {
         return logs;
     }
     /**
-     * 新增日志信息
+     * 鏂板鏃ュ織淇℃伅
      * @param log
      */
     public static void addLog(String log) {
@@ -29,7 +29,7 @@ public class LogMonitor implements Serializable {
         activateLogChangedEvent();
     }
     /**
-     * 清除日志信息
+     * 娓呴櫎鏃ュ織淇℃伅
      */
     public static void clearLogs() {
         logs = new StringBuilder();

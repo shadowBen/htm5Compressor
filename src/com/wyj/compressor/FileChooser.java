@@ -51,13 +51,13 @@ public class FileChooser extends JFrame implements ActionListener {
 	 */
 	private static final long serialVersionUID = 1L;
 	String[] quantitys = { "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%" };
-	// js»ìÏı²ÎÊı
-	static int linebreakpos = -1; // »»ĞĞÎ»ÖÃ -1±íÊ¾²»»»ĞĞ
-	static boolean munge = true; // ÊÇ·ñ»ìÏı
-	static boolean verbose = false;// ÏÔÊ¾ÏêÏ¸ĞÅÏ¢ºÍ¾¯¸æĞÅÏ¢
-	static boolean preserveAllSemiColons = false;// ±£Áô·ÖºÅ
-	static boolean disableOptimizations = false;// ½ûÓÃ×Ô´øµÄËùÓĞÓÅ»¯´ëÊ©
-	static float quantity = 0.1f;// Í¼Æ¬Ñ¹ËõÖÊÁ¿
+	// jsæ··æ·†å‚æ•°
+	static int linebreakpos = -1; // æ¢è¡Œä½ç½® -1è¡¨ç¤ºä¸æ¢è¡Œ
+	static boolean munge = true; // æ˜¯å¦æ··æ·†
+	static boolean verbose = false;// æ˜¾ç¤ºè¯¦ç»†ä¿¡æ¯å’Œè­¦å‘Šä¿¡æ¯
+	static boolean preserveAllSemiColons = false;// ä¿ç•™åˆ†å·
+	static boolean disableOptimizations = false;// ç¦ç”¨è‡ªå¸¦çš„æ‰€æœ‰ä¼˜åŒ–æªæ–½
+	static float quantity = 0.1f;// å›¾ç‰‡å‹ç¼©è´¨é‡
 
 	private JButton open = null;
 	private ZPanel zPanel = null;
@@ -95,16 +95,16 @@ public class FileChooser extends JFrame implements ActionListener {
 		buttons.setLayout(new GridLayout(3, 1));
 		open = new JButton("\u9009\u62e9\u6587\u4ef6\u5939");
 
-		// ÎÄ¼şÏà¹ØÖĞ¼ÓÈëÎÄ×Ö£¬½ø¶ÈÌõ £¬°Ù·Ö±È
+		// æ–‡ä»¶ç›¸å…³ä¸­åŠ å…¥æ–‡å­—ï¼Œè¿›åº¦æ¡ ï¼Œç™¾åˆ†æ¯”
 		fileRefer = new JPanel();
 		fileReferPercentage = new JPanel();
 		fileRefer.setLayout(new GridLayout(3, 1));
 		fileReferPercentage.setLayout(new GridLayout(3, 1));
-		// ÎÄ×Ö
+		// æ–‡å­—
 		fileRefer.add(new JLabel("JavaScript"));
 		fileRefer.add(new JLabel("Css"));
 		fileRefer.add(new JLabel("Image"));
-		// ½ø¶ÈÌõ
+		// è¿›åº¦æ¡
 		JsPBar = new JProgressBar();
 		CssPBar = new JProgressBar();
 		ImgsPBar = new JProgressBar();
@@ -119,7 +119,7 @@ public class FileChooser extends JFrame implements ActionListener {
 		zPanel.setImagePath("logo.png"); // 400*200
 		zPanel.setPreferredSize(new Dimension(zPanel.getImgWidth(), zPanel.getImgHeight()));
 
-		// ÈÕÖ¾¿ò;
+		// æ—¥å¿—æ¡†;
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setPreferredSize(new Dimension(zPanel.getImgWidth(), zPanel.getImgHeight()));
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
@@ -133,7 +133,7 @@ public class FileChooser extends JFrame implements ActionListener {
 		txtLogInfo.setLineWrap(true);
 		scrollPane.setViewportView(txtLogInfo);
 
-		// °´Å¥panelÖĞ¼ÓÈë¸÷¸ö°´Å¥
+		// æŒ‰é’®panelä¸­åŠ å…¥å„ä¸ªæŒ‰é’®
 		jb = new JCheckBox("\u004a\u0073\u6df7\u6dc6");
 		jb.addItemListener(new ItemListener() {
 			@Override
@@ -148,7 +148,7 @@ public class FileChooser extends JFrame implements ActionListener {
 		});
 		jb.setSelected(true);
 
-		// Í¼Æ¬Ñ¹ËõÖÊÁ¿Ñ¡Ôñ
+		// å›¾ç‰‡å‹ç¼©è´¨é‡é€‰æ‹©
 		jcb = new JComboBox<>(quantitys);
 		jcb.addItemListener(new ItemListener() {
 			@Override
@@ -163,7 +163,7 @@ public class FileChooser extends JFrame implements ActionListener {
 		buttons.add(open);
 		buttons.add(jb);
 		buttons.add(jcb);
-		getContentPane().add("North", zPanel); // ½«°´Å¥Ìí¼Óµ½´°¿ÚÖĞ
+		getContentPane().add("North", zPanel); // å°†æŒ‰é’®æ·»åŠ åˆ°çª—å£ä¸­
 		getContentPane().add("South", scrollPane);
 		getContentPane().add("East", buttons);
 		getContentPane().add("West", fileRefer);
@@ -186,7 +186,7 @@ public class FileChooser extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		new Thread(new ReadFiles()).start();// ¶ÁÈ¡ÎÄ¼ş
+		new Thread(new ReadFiles()).start();// è¯»å–æ–‡ä»¶
 		timer = new Timer(true);
 
 	}
@@ -196,12 +196,12 @@ public class FileChooser extends JFrame implements ActionListener {
 		public void run() {
 			JFileChooser jfc = new JFileChooser();
 			jfc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-			int choosed = jfc.showDialog(new JLabel(), "Ñ¡Ôñ");
-			//System.out.println(choosed);//»á·µ»ØÑ¡Ôñ½á¹û  JFileChooser.APPROVE_OPTION=È·¶¨  JFileChooser. CANCEL_OPTION= È¡Ïû
+			int choosed = jfc.showDialog(new JLabel(), "é€‰æ‹©");
+			//System.out.println(choosed);//ä¼šè¿”å›é€‰æ‹©ç»“æœ  JFileChooser.APPROVE_OPTION=ç¡®å®š  JFileChooser. CANCEL_OPTION= å–æ¶ˆ
 			if (choosed == JFileChooser.APPROVE_OPTION) {
 				File file = jfc.getSelectedFile();
 				if (null != file) {
-					// ³õÊ¼»¯
+					// åˆå§‹åŒ–
 					JsNum = 0;
 					CssNum = 0;
 					ImgsNum = 0;
@@ -211,8 +211,8 @@ public class FileChooser extends JFrame implements ActionListener {
 					CssFinishMin = false;
 					JsFinishMin = false;
 					ImgFinishMin = false;
-					Log("---------------Ñ¡ÔñÎÄ¼ş---------------");
-					// Ñ¡ÔñÁËÎÄ¼ş¼Ğºó¿ªÊ¼¼ÆÊı
+					Log("---------------é€‰æ‹©æ–‡ä»¶---------------");
+					// é€‰æ‹©äº†æ–‡ä»¶å¤¹åå¼€å§‹è®¡æ•°
 					timer.schedule(new TimerTask() {
 						@Override
 						public void run() {
@@ -235,7 +235,7 @@ public class FileChooser extends JFrame implements ActionListener {
 							CssPBar.setValue(cssPer);
 							ImgsPBar.setValue(imgPer);
 							if (CssFinishMin && JsFinishMin && ImgFinishMin) {
-								Log("---------------Ñ¹Ëõ½áÊø---------------");
+								Log("---------------å‹ç¼©ç»“æŸ---------------");
 								timer.cancel();
 
 								System.gc();
@@ -244,21 +244,21 @@ public class FileChooser extends JFrame implements ActionListener {
 					}, 0, 300);
 					traverseFolder2(file);
 					if (file.listFiles().length == 0) {
-						Log("---------------¿ÕÎÄ¼ş¼Ğ---------------");
+						Log("---------------ç©ºæ–‡ä»¶å¤¹---------------");
 						CssFinishMin = true;
 						JsFinishMin = true;
 						ImgFinishMin = true;
 					} else {
-						Log("---------------Ñ¹Ëõ¿ªÊ¼---------------");
-						new Thread(new MinCss()).start();// CssÑ¹Ëõ
-						new Thread(new MinJs()).start();// JsÑ¹Ëõ
-						new Thread(new MinImg()).start();// ºóÆÚÍ¼Æ¬Ñ¹Ëõ
+						Log("---------------å‹ç¼©å¼€å§‹---------------");
+						new Thread(new MinCss()).start();// Csså‹ç¼©
+						new Thread(new MinJs()).start();// Jså‹ç¼©
+						new Thread(new MinImg()).start();// åæœŸå›¾ç‰‡å‹ç¼©
 					}
 				} else {
-					Log("---------------È¡ÏûÑ¡Ôñ---------------");
+					Log("---------------å–æ¶ˆé€‰æ‹©---------------");
 				}
 			} else {
-				Log("---------------È¡ÏûÑ¡Ôñ---------------");
+				Log("---------------å–æ¶ˆé€‰æ‹©---------------");
 			}
 		}
 	}
@@ -304,7 +304,7 @@ public class FileChooser extends JFrame implements ActionListener {
 						Raster ra = img.getData();
 						Rectangle rect = ra.getBounds();
 						if (rect.width > 5000 || rect.height > 5000) {
-							Log(fPath + "ÎÄ¼ş·ÖÂÊ¸ß¹ı´ó£¬ÒÑ×Ô¶¯ºöÂÔ");
+							Log(fPath + "æ–‡ä»¶åˆ†ç‡é«˜è¿‡å¤§ï¼Œå·²è‡ªåŠ¨å¿½ç•¥");
 							continue;
 						}
 						Thumbnails.of(f).scale(1f).outputQuality(quantity).toFile(fPath);
@@ -323,7 +323,7 @@ public class FileChooser extends JFrame implements ActionListener {
 		}
 	}
 
-	public boolean minifyJsAndCss(File file2) {// ĞèÒªÑ¹ËõµÄfile
+	public boolean minifyJsAndCss(File file2) {// éœ€è¦å‹ç¼©çš„file
 		String fileName = file2.getName();
 		Reader rd = null;
 		Writer fw = null;
@@ -409,7 +409,7 @@ public class FileChooser extends JFrame implements ActionListener {
 				}
 			}
 		} else {
-			// ²»ÊÇjsºÍcss
+			// ä¸æ˜¯jså’Œcss
 		}
 		return true;
 	}
@@ -418,41 +418,41 @@ public class FileChooser extends JFrame implements ActionListener {
 		if (file.exists()) {
 			File[] files = file.listFiles();
 			if (files.length == 0) {
-				// System.out.println("ÎÄ¼ş¼ĞÊÇ¿ÕµÄ!");
+				// System.out.println("æ–‡ä»¶å¤¹æ˜¯ç©ºçš„!");
 				return;
 			} else {
 				for (File file2 : files) {
 					if (file2.isDirectory()) {
-						// System.out.println("ÎÄ¼ş¼Ğ:" + file2.getAbsolutePath());
+						// System.out.println("æ–‡ä»¶å¤¹:" + file2.getAbsolutePath());
 						traverseFolder2(file2);
 					} else {
 						// minifyJsAndCss(file2);
 						String fileName = file2.getName();
 						if (fileName.endsWith(".css") && !fileName.endsWith(".min.css")) {
 							CssFile.add(file2.getAbsolutePath());
-							Log("¶ÁÈ¡Css£º" + file2.getName());
+							Log("è¯»å–Cssï¼š" + file2.getName());
 						} else if (fileName.endsWith(".js") && !fileName.endsWith(".min.js")) {
 							JsFile.add(file2.getAbsolutePath());
-							Log("¶ÁÈ¡ Js£º" + file2.getName());
+							Log("è¯»å– Jsï¼š" + file2.getName());
 						} else {
 							// System.out.println(file2.getName());
 							try {
 								BufferedImage image = ImageIO.read(file2);
 								if (image == null) {
-									Log("¹ıÂËÎÄ¼ş£º" + file2.getName());
+									Log("è¿‡æ»¤æ–‡ä»¶ï¼š" + file2.getName());
 								} else {
 									ImgFile.add(file2.getAbsolutePath());
-									Log("¶ÁÈ¡Í¼Æ¬£º" + file2.getName());
+									Log("è¯»å–å›¾ç‰‡ï¼š" + file2.getName());
 								}
 							} catch (IOException ex) {
-								Log("¹ıÂËÎÄ¼ş£º" + file2.getName());
+								Log("è¿‡æ»¤æ–‡ä»¶ï¼š" + file2.getName());
 							}
 						}
 					}
 				}
 			}
 		} else {
-			// System.out.println("ÎÄ¼ş²»´æÔÚ!");
+			// System.out.println("æ–‡ä»¶ä¸å­˜åœ¨!");
 		}
 	}
 

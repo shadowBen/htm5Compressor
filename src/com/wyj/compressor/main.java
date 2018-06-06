@@ -22,11 +22,11 @@ public class main {
 
 			private void createAndShowGUI() throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
 				UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");  
-				// 确保一个漂亮的外观风格
+				// 纭繚涓�涓紓浜殑澶栬椋庢牸
 		        JFrame.setDefaultLookAndFeelDecorated(true);
 		        JFrame frame = new FileChooser();
 		        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		        // 显示窗口
+		        // 鏄剧ず绐楀彛
 		        frame.pack();
 		        frame.setVisible(true);
 			}

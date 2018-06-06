@@ -37,10 +37,10 @@ public class ZPanel extends javax.swing.JPanel {
     }  
   
     public void setImagePath(String imgPath) {  
-        // ¸Ã·½·¨²»ÍÆ¼öÊ¹ÓÃ£¬¸Ã·½·¨ÊÇÀÁ¼ÓÔØ£¬Í¼Ïñ²¢²»¼ÓÔØµ½ÄÚ´æ£¬µ±ÄÃÍ¼ÏñµÄ¿íºÍ¸ßÊ±»á·µ»Ø-1£»  
+        // è¯¥æ–¹æ³•ä¸æ¨èä½¿ç”¨ï¼Œè¯¥æ–¹æ³•æ˜¯æ‡’åŠ è½½ï¼Œå›¾åƒå¹¶ä¸åŠ è½½åˆ°å†…å­˜ï¼Œå½“æ‹¿å›¾åƒçš„å®½å’Œé«˜æ—¶ä¼šè¿”å›-1ï¼›  
         // image = Toolkit.getDefaultToolkit().getImage(imgPath);  
         try {  
-            // ¸Ã·½·¨»á½«Í¼Ïñ¼ÓÔØµ½ÄÚ´æ£¬´Ó¶øÄÃµ½Í¼ÏñµÄÏêÏ¸ĞÅÏ¢¡£  
+            // è¯¥æ–¹æ³•ä¼šå°†å›¾åƒåŠ è½½åˆ°å†…å­˜ï¼Œä»è€Œæ‹¿åˆ°å›¾åƒçš„è¯¦ç»†ä¿¡æ¯ã€‚  
         	//String noPicPath = System.getProperty("user.dir")
 					//+ "/bin/com/wyj/util/";
             //image = ImageIO.read(new FileInputStream(noPicPath+imgPath));

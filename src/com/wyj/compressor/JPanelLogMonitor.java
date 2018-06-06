@@ -8,7 +8,7 @@ public class JPanelLogMonitor extends JPanel {
     private JTextArea txtLogInfo;
 //    public static void main(String[] args) {
 //        try {
-//            //ÉèÖÃÏµÍ³¹Û¸ĞÆ÷
+//            //è®¾ç½®ç³»ç»Ÿè§‚æ„Ÿå™¨
 //            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 //            DialogLogMonitor dialog = new DialogLogMonitor();
 //            dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -18,7 +18,7 @@ public class JPanelLogMonitor extends JPanel {
 //        }
 //    }
     /**
-     * ÈÕÖ¾ĞÅÏ¢±ä¸ü¼àÌı´¦Àí£¨¹Ø¼üµã£©
+     * æ—¥å¿—ä¿¡æ¯å˜æ›´ç›‘å¬å¤„ç†ï¼ˆå…³é”®ç‚¹ï¼‰
      */
     private void init() {
         LogMonitor.addLogChangedListener(new LogChangedListener() {
