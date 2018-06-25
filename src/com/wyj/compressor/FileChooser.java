@@ -439,13 +439,13 @@ public class FileChooser extends JFrame implements ActionListener {
 							try {
 								BufferedImage image = ImageIO.read(file2);
 								if (image == null) {
-									Log("过滤文件：" + file2.getName());
+									Log("忽略文件：" + file2.getName());
 								} else {
 									ImgFile.add(file2.getAbsolutePath());
 									Log("读取图片：" + file2.getName());
 								}
 							} catch (IOException ex) {
-								Log("过滤文件：" + file2.getName());
+								Log("忽略文件：" + file2.getName()+"  图片格式有可能为cmyk格式，请将图片保存为rpg格式");
 							}
 						}
 					}
